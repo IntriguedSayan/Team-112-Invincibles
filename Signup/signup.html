@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    <style>
+        #main{
+            width: 30%;
+            margin: auto;
+            border: 1px solid black;
+        }
+        h1{
+            text-align: center;
+        }
+        #signup{
+            width: 100%;
+            margin: auto;
+            /* display: flex;
+            align-items: center;
+            justify-content: center; */
+            flex-shrink: 1;
+        }
+        input{
+            width: 90%;
+            padding: 10px;
+            /* margin: 10px; */
+            border-radius: 20px;
+            display: flex;
+            /* flex-shrink: 0; */
+            align-items: center;
+            justify-content: center; 
+        }
+        #gender{
+            width: 100%;
+            padding: 10px;
+            margin: 10px;
+            /* border-radius: 20px; */
+            margin: auto;
+        }
+        #submit{
+            color: white;
+            background-color: red;
+            border: none;
+            font-size: 20px;
+            width: 100%;
+        }
+        #submit:hover{
+            background-color: rgb(237, 105, 105);
+            color: rgb(50, 44, 44);
+        }
+    </style>
+</head>
+<body>
+   <div id="main">
+    <h1>SignUp</h1>
+    <div id="signup">
+        <form action="" id="form">
+            <input type="text" placeholder="Entre Your Name" id="name">
+            <br>
+            <input type="email" name="" id="email" placeholder="Entre Your Email">
+            <br>
+            <input type="password" name="" placeholder="Entre Password" id="pass">
+            <br>
+            <input type="date" name="" id="date">
+            <br>
+            <select name="" id="gender">
+                <option value="">Choose-gendre</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            <br>
+            <input type="submit" value="SignUp" id="submit">
+        </form>
+    </div>
+   </div>
+</body>
+</html>
+<script>
+    document.querySelector("#form").addEventListener("submit",myfun)
+    var data=[] || JSON.parse(localStorage.getItem("signupdata"))
+
+
+    function myfun(){
+
+        event.preventDefault()
+
+        var name=form.name.value
+        var email=form.email.value
+        var password=form.pass.value
+        var date=form.date.value
+        var gender=form.gender.value
+        console.log(name)
+
+
+
+        var obj={
+            name:form.name.value,
+            email:form.email.value,
+            password:form.pass.value,
+            date:form.date.value,
+            gender:form.gender.value
+        }
+
+        if(name.length==0)
+        {
+            alert("Name field can't blank")
+            return
+        }
+        if(email.length==0)
+        {
+            alert("email field can't blank")
+            return
+        }
+        if(password.length==0)
+        {
+            alert("password field can't blank")
+            return
+        }
+        if(date.length==0)
+        {
+            alert("date field can't blank")
+            return
+        }
+        if(gender.length==0)
+        {
+            alert("gender field can't blank")
+            return
+        }
+
+
+         
+
+            var flag=false
+            data.forEach(function(el){
+             if(el.email==email)
+            {
+                flag=true
+            }
+           })
+
+            if(flag)
+            {
+                alert("This email is already exist")
+                return
+            }
+
+            data.push(obj)
+            localStorage.setItem("signupdata", JSON.stringify(data))
+
+
+
+    }
+</script>
