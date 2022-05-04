@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+    <h1>Log In</h1>
+    <form id="form">
+     <input type="text" id="email" placeholder="Enter Your Email"/>
+     
+     <input type="text" id="password" placeholder="Enter Your Password">
+     <input type="submit" value="Log In"/>
+    </form>
+</body>
+<script>
+   
+   
+   var signupArr=JSON.parse(localStorage.getItem("formDetails")) 
+   document.querySelector("form").addEventListener("submit",login)
+
+   function login(){
+        event.preventDefault()
+        var Emailid=form.email.value
+
+        var Password=form.password.value
+        var obj={
+            email1:Emailid,
+            pass:Password
+        }
+        console.log(obj)
+     showData(signupArr,obj)  
+       
+    }
+
+    function showData(signupArr,obj){
+       
+       var flag=false
+       
+         for(let i=0;i<signupArr.length;i++)
+            {  
+                if(obj==null)
+                  {
+                      alert("Please create an account")
+                    }
+
+                else if(obj.email1===signupArr[i].Email && obj.pass===signupArr[i].Key)
+                {
+                  flag=true
+                
+
+        var logInData=localStorage.setItem("login",JSON.stringify(obj)) 
+                }
+
+                else
+                {
+                    alert("Wrong Credentials")
+                }
+            
+            }
+
+
+            if(flag)
+              {  alert("Log In Successful")
+                
+                window.location.href="navbar.html"}
+
+    }
+
+</script>
+</html>

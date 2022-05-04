@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+    <div id="navbar">
+        <div id="brand">Reebok</div>
+        <div id="men"> <a href="mens.html">Men</a></div>
+        <div id="women"><a href="womens.html">Women</a></div>
+        <div class="user">
+        <h2 id="login"><a href="Login.html">Log In</a></h2>
+        <h2 id="signup"><a href="signup.html">Sign Up</a></h2>
+        </div>
+        
+    </div>
+</body>
+<script>
+
+ var logInData=JSON.parse(localStorage.getItem("login"))
+
+ var User=document.querySelector(".user")
+    console.log(logInData)
+    if(logInData != null)
+      { 
+        User.innerHTML=`<h2>User</h2>
+                        <a href="Cart.html">Cart</a>`
+
+      }
+       
+       
+
+
+
+
+</script>
+</html>
